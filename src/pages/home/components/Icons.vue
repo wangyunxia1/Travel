@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-  	 	<swiper  ref="mySwiper" >
+  	 	<swiper :options="swiperOption"  ref="mySwiper" >
 				<swiper-slide v-for="(page,index) of pages" :key="index">
 			  	<div class="icon" v-for="item of page" :key="item.id">
 			  		<div class="icon-img">
@@ -9,7 +9,7 @@
 			  		<p>{{item.iconText}}</p>
 			  	</div>
 			  </swiper-slide>	
-			  
+			  <div class="swiper-pagination"  slot="pagination"></div>
   	 	</swiper>
   </div>
 </template>
@@ -19,9 +19,11 @@
 export default {
   name: 'HomeIcons',
   data (){
-  	return {
-
-
+    return {
+      swiperOption:{
+        pagination:'.swiper-pagination',
+        loop:true
+      },
   		iconList:[
   			{
   				id:"0001",
