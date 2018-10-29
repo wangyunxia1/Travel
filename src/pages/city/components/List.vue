@@ -18,7 +18,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="area" v-for="(item,key) in cities ">
+
+				<div class="area" 
+				v-for="(item,key) in cities " 
+				:key="key"
+				:ref="key"
+				>
 					<div class="title">{{key}}</div>
 					<div class="item-list">
 						<div class="item border-bottom" v-for="innerItem in item">
@@ -38,11 +43,22 @@
 		name:'CityList',
 		props:{
 			'cities':Object,
-			'hot':Array
+			'hot':Array,
+			'letters':String
 		},
 		data (){
 			return{
 				
+			}
+		},
+		watch:{
+			letters () {
+				// console.log(this.letters)
+				if(this.letters){
+					const element = this.$refs[this.letters][0]
+					// console.log(element)
+					this.scroll.scrollToElement(element)
+				}
 			}
 		},
 		mounted () {
