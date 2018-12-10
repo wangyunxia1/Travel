@@ -1,24 +1,31 @@
 <template>
-	<div class="banner">
-		<router-link to="/">
-		<div class="iconfont back-home">&#xe624;</div>
-		</router-link>
-		<img class="banner-img" src="//img1.qunarzz.com/sight/p0/1810/47/47ee4064b9218ff8a3.img.jpg_600x330_7a034d9c.jpg">
-		<div class="banner-info">
-			<div class="banner-num">
-				<span class="iconfont banner-icon">&#xe7b8;</span>
-				31
-			</div>
-			<div class="banner-title">
-				南通森林野生动物园
+	<div>
+		<div class="banner">
+			<router-link to="/">
+			<div class="iconfont back-home">&#xe624;</div>
+			</router-link>
+			<img class="banner-img" src="//img1.qunarzz.com/sight/p0/1810/47/47ee4064b9218ff8a3.img.jpg_600x330_7a034d9c.jpg">
+			<div class="banner-info">
+				<div class="banner-num">
+					<span class="iconfont banner-icon">&#xe7b8;</span>
+					31
+				</div>
+				<div class="banner-title">
+					南通森林野生动物园
+				</div>
 			</div>
 		</div>
+		<common-gallary></common-gallary>
 	</div>
 </template>
 
 <script >
+	import CommonGallary from 'common/gallary/Gallary'
 	export default {
-		name:"DetailBanner"
+		name:"DetailBanner",
+		components: {
+		    CommonGallary,
+		  }
 	}
 </script>
 

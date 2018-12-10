@@ -31,7 +31,7 @@
 		},
 		data(){
 			return {
-				allCities:{},
+			  allCities:{},
 			  hotCities:[],
 			  letter:""  
 			}

@@ -8,19 +8,19 @@
 	      ref="search"
 	      v-show="keyword"
 	    >
-      <ul>
-        <li
-          class="search-item border-bottom"
-          v-for="item of list"
-          :key="item.id"
-          @click="handleCityClick(item.name)"
-        >
-          {{item.name}}
-        </li>
-        <li class="search-item border-bottom" v-show="hasNoData">
-          没有找到匹配数据
-        </li>
-      </ul>
+	      	<ul>
+	        	<li
+		          	class="search-item border-bottom"
+		          	v-for="item of list"
+		          	:key="item.id"
+		          	@click="handleCityClick(item.name)"
+		        >
+	          		{{item.name}}
+	        	</li>
+		        <li class="search-item border-bottom" v-show="hasNoData">
+		          没有找到匹配数据
+		        </li>
+	      </ul>
 	   </div>
    </div>
 </template>
@@ -70,6 +70,7 @@
 	  },
 	  methods: {
 	    handleCityClick (city) {
+	      console.log(this)
 	      this.changeCities(city)
 	      this.$router.push('/')
 	    },
@@ -82,7 +83,7 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '~style/varibles.styl'
+  @import '~style/varibles.styl'                                                                                     
 	.search{
 		background: $bgColor;
 		height: 0.72rem;

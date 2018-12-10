@@ -59,10 +59,10 @@
 			}
 		},
 		computed: {
-	    ...mapState({
-	      currentCity: 'city'
-	    })
-	  },
+		    ...mapState({
+		      currentCity: 'city'
+		    })
+	  	},
 		methods:{
 			handleCityClick(city){
 				// this.$store.commit('changeCities',city)
