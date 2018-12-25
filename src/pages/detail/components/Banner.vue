@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<div class="banner">
-			<router-link to="/">
+		<div class="banner" @click='handleShowGallary'>
+			<!-- <router-link to="/">
 			<div class="iconfont back-home">&#xe624;</div>
-			</router-link>
+			</router-link> -->
 			<img class="banner-img" src="//img1.qunarzz.com/sight/p0/1810/47/47ee4064b9218ff8a3.img.jpg_600x330_7a034d9c.jpg">
 			<div class="banner-info">
 				<div class="banner-num">
@@ -15,16 +15,32 @@
 				</div>
 			</div>
 		</div>
-		<!-- <common-gallary></common-gallary> -->
+		<common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
 	</div>
 </template>
 
 <script >
-	// import CommonGallary from '/common/gallary/Gallary'
+	import CommonGallary from 'common/gallary/Gellary'
 	export default {
 		name:"DetailBanner",
+		data () {
+			return {
+				showGallary:false,
+				imgs:['http://img1.qunarzz.com/wugc/p180/201306/16/7f08e81624346b1693835fbb.jpg_350x240_b09a9503.jpg',
+	      	'http://img1.qunarzz.com/sight/p0/1410/e3/73da8d3e19cdc41c1932d4fcd22ec792.water.jpg_350x240_af846382.jpg',
+	      	'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_350x240_8e61302a.jpg']
+			}
+		},
+		methods:{
+			handleShowGallary () {
+				this.showGallary = true
+			},
+			handleGallaryClose (){
+				this.showGallary = false
+			}
+		},
 		components: {
-		    // CommonGallary,
+		    CommonGallary,
 		  }
 	}
 </script>
@@ -47,13 +63,11 @@
 		text-align: center;
 		border-radius: 50%
 	}
-	.back-icon{}
 	.banner-img{
 		width: 100%
 	}
 	.banner-info{
 		position: absolute;
-		z-index: 1;
 		color: #fff;
 		bottom: .36rem;
 		right: 0;
